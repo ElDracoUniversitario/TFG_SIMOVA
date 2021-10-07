@@ -39,7 +39,7 @@ phpCAS::forceAuthentication();
     $host = "mariadb"; //Aquest paràmetre deixa'l tal i com està
     $user = "tfg-b4"; //En aquest paràmetre has de posar l'usuari que t'han donat des del DEIC
     $password = "YDF1iLvX"; //En aquest paràmetre has de posar la contrasenya que t'han donat des del DEIC
-    $database = "tfg-bf"; //En aquest paràmetre has de posar l'usuari que t'han donat des del DEIC (ja que la BD es diu igual que l'usuari)
+    $database = "tfg-b4"; //En aquest paràmetre has de posar l'usuari que t'han donat des del DEIC (ja que la BD es diu igual que l'usuari)
     $table = "usuario"; //En aquest paràmetre has de posar la taula que vulguis llegir
 
 
@@ -49,8 +49,8 @@ phpCAS::forceAuthentication();
     try {
       $db = new PDO("mysql:host=$host;dbname=$database", $user, $password);
       echo "<ul>";
-      foreach($db->query("SELECT dni FROM $table") as $row) {
-        echo "<li>" . $row['dni'] . "</li>";
+      foreach($db->query("SELECT * FROM $table") as $row) {
+        echo "<li>" . $row['dni'] .", ". $row['uid'] .", ". $row['nombre']." ".$row['apellido_1']." ". $row['apellido_2']. "</li>";
       }
       echo "</ul>";
     } catch (PDOException $e) {
