@@ -3,19 +3,19 @@
 // ####----- INICI PHPCAS: AQUESTES LÍNIES DE CODI FAN EL LOGUIN AMB EL CAS DE LA UAB -----####
 //CONSELL: Podeu moure aquestes línies de codi allà on vulgueu per forçar l'inici de sessió
 
-$_SERVER['HTTPS'] = true;
+//$_SERVER['HTTPS'] = true;
 
 // Load the settings from the central config file
-require_once '/var/www/html/CAS_config/config.php';
+//require_once '/var/www/html/CAS_config/config.php';
 // Load the CAS lib
-require_once $phpcas_path . 'CAS.php';
+//require_once $phpcas_path . 'CAS.php';
 
 // Initialize phpCAS
-phpCAS::client(CAS_VERSION_2_0, $cas_host, $cas_port, $cas_context);
-phpCAS::setNoCasServerValidation();
+//phpCAS::client(CAS_VERSION_2_0, $cas_host, $cas_port, $cas_context);
+//phpCAS::setNoCasServerValidation();
 
 // force CAS authentication
-phpCAS::forceAuthentication();
+//phpCAS::forceAuthentication();
 
 // at this step, the user has been authenticated by the CAS server
 // and the user's login name can be read with phpCAS::getUser().
@@ -26,8 +26,9 @@ phpCAS::forceAuthentication();
 ?>
 <html lang="cat">
 
-<?
-include(__DIR__ .'/head.html');
+<?php
+//include(__DIR__ .'/head.html');
+include ('./head.html');
 ?>
 
 <body id="page-top">
@@ -36,8 +37,8 @@ include(__DIR__ .'/head.html');
     <div id="wrapper">
 
         <!-- Sidebar bg-gradient-info es verde-->
-        <?
-        include(__DIR__ .'/sidebar.html');
+        <?php
+        include('./sidebar.html');
         ?>
         <!-- End of Sidebar -->
 
@@ -48,8 +49,8 @@ include(__DIR__ .'/head.html');
             <div id="content">
 
                 <!-- Topbar -->
-                <?
-                include(__DIR__ .'/topbar.html');
+                <?php
+                include('./topbar.html');
                 ?>
                 <!-- End of Topbar -->
 

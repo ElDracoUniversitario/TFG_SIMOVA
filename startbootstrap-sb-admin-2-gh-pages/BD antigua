@@ -1,0 +1,5 @@
+$host = "mariadb"; //Aquest paràmetre deixa'l tal i com està
+                                    $user = "tfg-b4"; //En aquest paràmetre has de posar l'usuari que t'han donat des del DEIC
+                                    $password = "YDF1iLvX"; //En aquest paràmetre has de posar la contrasenya que t'han donat des del DEIC
+                                    $database = "tfg-b4"; //En aquest paràmetre has de posar l'usuari que t'han donat des del DEIC (ja que la BD es diu igual que l'usuari)
+                                    $table = "usuario"; //En aquest paràmetre has de posar la taula que vulguis llegir

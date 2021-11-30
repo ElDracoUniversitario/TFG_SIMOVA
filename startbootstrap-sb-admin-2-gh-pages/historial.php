@@ -1,33 +1,8 @@
-<?php
 
-// ####----- INICI PHPCAS: AQUESTES LÍNIES DE CODI FAN EL LOGUIN AMB EL CAS DE LA UAB -----####
-//CONSELL: Podeu moure aquestes línies de codi allà on vulgueu per forçar l'inici de sessió
-
-$_SERVER['HTTPS'] = true;
-
-// Load the settings from the central config file
-require_once '/var/www/html/CAS_config/config.php';
-// Load the CAS lib
-require_once $phpcas_path . 'CAS.php';
-
-// Initialize phpCAS
-phpCAS::client(CAS_VERSION_2_0, $cas_host, $cas_port, $cas_context);
-phpCAS::setNoCasServerValidation();
-
-// force CAS authentication
-phpCAS::forceAuthentication();
-
-// at this step, the user has been authenticated by the CAS server
-// and the user's login name can be read with phpCAS::getUser().
-
-// ####----- FI PHPCAS: AQUESTES LÍNIES DE CODI FAN EL LOGUIN AMB EL CAS DE LA UAB -----####
-
-
-?>
 <html lang="cat">
 
-<?
-include(__DIR__ .'/head.html');
+<?php
+include('./head.html');
 ?>
 
 <body id="page-top">
@@ -36,8 +11,8 @@ include(__DIR__ .'/head.html');
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <?
-        include(__DIR__ .'/sidebar.html');
+        <?php
+        include('./sidebar.html');
         ?>
         <!-- End of Sidebar -->
 
@@ -50,7 +25,7 @@ include(__DIR__ .'/head.html');
                 <!-- Topbar -->
                 <!-- Topbar -->
                 <?
-                include(__DIR__ .'/topbar.html');
+                include('./topbar.html');
                 ?>
                 <!-- End of Topbar -->
 <!-- Body-->
@@ -93,88 +68,38 @@ include(__DIR__ .'/head.html');
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                    <?php
-                                    $host = "mariadb"; //Aquest paràmetre deixa'l tal i com està
-                                    $user = "tfg-b4"; //En aquest paràmetre has de posar l'usuari que t'han donat des del DEIC
-                                    $password = "YDF1iLvX"; //En aquest paràmetre has de posar la contrasenya que t'han donat des del DEIC
-                                    $database = "tfg-b4"; //En aquest paràmetre has de posar l'usuari que t'han donat des del DEIC (ja que la BD es diu igual que l'usuari)
-                                    $table = "historial"; //En aquest paràmetre has de posar la taula que vulguis llegir
-                                    $titulos ='';
+                                      <?php
+                                      $host = "localhost"; //Aquest paràmetre deixa'l tal i com està
+                                      $user = "u989932990_simova"; //En aquest paràmetre has de posar l'usuari que t'han donat des del DEIC
+                                      $password = "~IiQcM&>L3"; //En aquest paràmetre has de posar la contrasenya que t'han donat des del DEIC
+                                      $database = "u989932990_simova"; //En aquest paràmetre has de posar l'usuari que t'han donat des del DEIC (ja que la BD es diu igual que l'usuari)
+                                      $table = "historico"; //En aquest paràmetre has de posar la taula que vulguis llegir
 
-                                    //Exemple de lectura de la BD on es llegeix la "nom_taula" i s'extreu el paràmetre "item_varchar"
-                                    //Si vols provar aquest codi, genera una taula amb el "nom_taula" amb 2 atributs: un "item_ID" autoincremental (primary key)
-                                    //i un "item_varchar" que sigui de tipus varchar. Després afegeix una línia amb el text que vulguis i veuràs com es mostra al web
-                                    try {
-                                      $db = new PDO("mysql:host=$host;dbname=$database", $user, $password);
 
-                                      foreach($db->query("SELECT * FROM $table") as $row) {
-                                      echo "<tr>";
-                                      switch ($row['operador']) {
-                                        case 'FGC':
-                                            echo "<td> <i class='fas fa-subway fa-sm fa-fw mr-2 text-gray-40'> </i></td>";
-                                            break;
-                                        case 'TMB-M':
-                                            echo "<td> <i class='fas fa-subway fa-sm fa-fw mr-2 text-gray-40'> </i></td>";
-                                            break;
-                                        case 'BUS':
-                                            echo "<td> <i class='fas fa-bus-alt fa-sm fa-fw mr-2 text-gray-40'> </i></td>";
-                                            break;
-                                        case 'RENFE':
-                                            echo "<td> <i class='fas fa-train fa-sm fa-fw mr-2 text-gray-40'> </i></td>";
-                                            break;
-                                        case 'TRAM':
-                                            echo "<td> <i class='fas fa-train fa-sm fa-fw mr-2 text-gray-40'> </i></td>";
-                                            break;
-                                    }
-                                      echo "<td>" . $row['operador'] ."</td>";
-                                        //echo "<td>" . $row['transporte'] ."</td>";
-                                        $titulos =  $row['titulo'];
-                                        $uid_estacion = $row['uid_estacion'];
+                                      //Exemple de lectura de la BD on es llegeix la "nom_taula" i s'extreu el paràmetre "item_varchar"
+                                      //Si vols provar aquest codi, genera una taula amb el "nom_taula" amb 2 atributs: un "item_ID" autoincremental (primary key)
+                                      //i un "item_varchar" que sigui de tipus varchar. Després afegeix una línia amb el text que vulguis i veuràs com es mostra al web
+                                      try {
+                                        $db = new PDO("mysql:host=$host;dbname=$database", $user, $password);
 
-                                        try {
-                                          $db1 = new PDO("mysql:host=$host;dbname=$database", $user, $password);
-
-                                          foreach($db1->query("SELECT * FROM titulo WHERE uid_titulo=$titulos ") as $row1) {
-                                            echo "<td>" . $row1['nombre'] ."</td>";
-                                          }
-
-                                        } catch (PDOException $e) {
-                                            print "Error!: " . $e->getMessage() . "<br/>";
-                                            die();
+                                        foreach($db->query("SELECT * FROM $table") as $row) {
+                                        echo "<tr>";
+                                          echo "<td>" . $row['uid_soporte'] ."</td>";
+                                          echo "<td>" . $row['uid_historico'] ."</td>";
+                                          echo "<td>" . $row['fecha'] ."</td>";
+                                          echo "<td>" . $row['hora'] ."</td>";
+                                          echo "<td>" . $row['estatus'] ."</td>";
+                                          echo "<td>" . $row['estacion'] ."</td>";
+                                          echo "<td>" . $row['titulo'] ."</td>";
+                                        echo "</tr>";
+                                        $db = null;
                                         }
 
-                                        try {
-                                          $db1 = new PDO("mysql:host=$host;dbname=$database", $user, $password);
-
-                                          foreach($db1->query("SELECT * FROM operador WHERE uid_estacion=$uid_estacion ") as $row1) {
-                                            echo "<td>" . $row1['estacion'] ."</td>";
-                                          }
-
-                                        } catch (PDOException $e) {
-                                            print "Error!: " . $e->getMessage() . "<br/>";
-                                            die();
-                                        }
-
-                                        echo "<td>" . $row['fecha'] ."</td>";
-
-                                        switch ($row['estado']) {
-                                          case 0:
-                                              echo "<td> Error de Validació</i></td>";
-                                              echo "<td><i class='fas fa-times fa-sm fa-fw mr-2 text-gray-40'></i></td>";
-                                              break;
-                                          case 1:
-                                              echo "<td> Validació correcta</i> </i></td>";
-                                              echo "<td><i class='fas fa-check fa-sm fa-fw mr-2 text-gray-40'></i> </i></td>";
-                                              break;
+                                      } catch (PDOException $e) {
+                                          print "Error!: " . $e->getMessage() . "<br/>";
+                                          die();
                                       }
-                                      echo "</tr>";
-                                      }
-
-                                    } catch (PDOException $e) {
-                                        print "Error!: " . $e->getMessage() . "<br/>";
-                                        die();
-                                    }
-                                    ?>
+                                      ?>
 
                                     </tbody>
                                 </table>
@@ -190,7 +115,7 @@ include(__DIR__ .'/head.html');
 
             <!-- Footer -->
             <?
-            include(__DIR__ .'/footer.html');
+            include('./footer.html');
             ?>
             <!-- End of Footer -->
 
