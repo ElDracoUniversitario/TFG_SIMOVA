@@ -1,15 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
-session_start();
-if(isset($_SESSION["soporte"])== false){
-    header("Location: http://www.simova.es/");
-    exit();
-}?>
 
 <?php
-
-require_once('../vista/head.php');
+include('./head.html');
 ?>
 
 
@@ -20,11 +13,7 @@ require_once('../vista/head.php');
 
         <!-- Sidebar -->
         <?php
-        if($_SESSION['admin'] == 1){
-            require_once('../vista/sidebar_admin.php');
-        }else{
-            require_once('../vista/sidebar.php');
-        }
+        include('./sidebar.html');
         ?>
         <!-- End of Sidebar -->
 
@@ -36,8 +25,7 @@ require_once('../vista/head.php');
 
                 <!-- Topbar -->
                 <?php
-                require_once('../vista/topbar.php');
-
+                include('./topbar.html');
                 ?>
                 <!-- End of Topbar -->
 
@@ -80,7 +68,7 @@ require_once('../vista/head.php');
                               echo "<div class='card-body' style='width:100,height:100'>";
                                 echo "<table>";
                                   echo "<tr>";
-                                    echo "<td rowspan='5'><img src='../imagenes/" . $row['imagen'] ."' alt='Imagen de una ".$row['nombre']."' width=100 height=100></td>"; //. $imagen . "</td>";
+                                    echo "<td rowspan='5'><img src='./imagenes/" . $row['imagen'] ."' alt='Imagen de una ".$row['nombre']."' width=100 height=100></td>"; //. $imagen . "</td>";
                                   echo "</tr>";
                                   echo "<tr><td>".$row['nombre']."</td></tr>" ;
                                   echo "<tr><td>Número de viatjes: ".$num_viajes."</td></tr>" ;

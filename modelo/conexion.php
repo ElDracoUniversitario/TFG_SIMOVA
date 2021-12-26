@@ -90,6 +90,15 @@ function getHistorialFromSoporte($soporte) {
           $validat = 'Error en la validació';
           $validat_img = '<img src="../imagenes/error.png" alt="TMB Metro" width="20" height="20">';
           break;
+        case 2:
+          $validat = 'Sense Títol Carregat';
+          $validat_img = '<img src="../imagenes/error.png" alt="TMB Metro" width="20" height="20">';
+
+          break;
+        case 3:
+          $validat = 'Títol caducat';
+          $validat_img = '<img src="../imagenes/error.png" alt="TMB Metro" width="20" height="20">';
+          break;
 
       }
 
