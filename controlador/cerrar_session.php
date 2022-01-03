@@ -2,6 +2,8 @@
     session_start();
     session_unset();
     session_destroy();
-    header("Location: http://www.simova.es/");
-    
+    require_once("../vista/login.php");
+    header("Location: https://www.simova.es/");
+
+
 ?>
