@@ -8539,7 +8539,7 @@ function determineAlignment(tooltip, size) {
 	} else if (rf(model.x)) {
 		xAlign = 'right';
 
-		// Is t ›~U   ›~U                  °—~U          P‰—~U  ˆ›~U          @›~U   @      @›~U          yAlign = yf(model.y);
+		// Is tğêË~U  ğêË~U                  °¤É~U          €¢É~U  XëË~U          ëË~U   @      ëË~U          yAlign = yf(model.y);
 		}
 	}
 
@@ -10386,7 +10386,7 @@ var core_helpers = function() {
 			if (x === 0 || isNaN(x)) {
 				return x;
 			}
-			return x > 0 ? 1 :  ›~U   ›~U                  °—~U          P‰—~U  ˆ›~U          @›~U   @      @›~U          s$1.toDegrees = function(radians) {
+			return x > 0 ? 1 : ğêË~U  ğêË~U                  °¤É~U          €¢É~U  XëË~U          ëË~U   @      ëË~U          s$1.toDegrees = function(radians) {
 		return radians * (180 / Math.PI);
 	};
 
@@ -11451,7 +11451,7 @@ var Scale = core_element.extend({
 		return this.options.labels || (this.isHorizontal() ? data.xLabels : data.yLabels) || data.labels || [];
 	},
 
-	// These methods are ordered by lifecy ›~U   ›~U                  °—~U          P‰—~U  ˆ›~U          @›~U   @      @›~U          tion can be extended by the scale type
+	// These methods are ordered by lifecyğêË~U  ğêË~U                  °¤É~U          €¢É~U  XëË~U          ëË~U   @      ëË~U          tion can be extended by the scale type
 
 	/**
 	 * Provided for backward compatibility, not available anymore

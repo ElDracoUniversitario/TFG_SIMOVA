@@ -16,12 +16,14 @@ require_once('../modelo/conexion.php');
 $auxiliar = getContrasenyaDeUsuario($email);
 
 //echo "ha pasado la funcion de getConstraenya";
-//echo $auxiliar['contrasenya'];  
+//echo $auxiliar['contrasenya'];
 
 if($contrasenya == $auxiliar['contrasenya']){
   $_SESSION["email"] = $email;
   //print("esto ha llegado hasta la session");
   $_SESSION['nombre'] = $auxiliar['nombre'];
+  $_SESSION['apellido1'] = $auxiliar['apellido1'];
+  $_SESSION['apellido2'] = $auxiliar['apellido2'];
   $_SESSION['admin'] = $auxiliar['admin'];
   $_SESSION['info_soporte'] = getSoporteFromDni($auxiliar['dni']);
   //echo $_SESSION['info_soporte']['uid_soporte'];
@@ -30,20 +32,19 @@ $_SESSION['soporte'] = $_SESSION['info_soporte']['uid_soporte'];
   //$_SESSION["soporte"] = getSoporteFromDni($auxiliar['dni']);
 
 //echo $_SESSION["soporte"];
-  
-  require_once("../vista/main.php");
+  require_once("../controlador/cargar_main.php");
+  //require_once("../vista/main.php");
   header("Location: http://www.simova.es/");
   //exit();
   //require_once('../index.php');
   //require_once('../vista/main.php');
   //header("Location: http://www.simova.es/");
   //exit();
-  
+
   //require_once('../vista/main.php');
-  
+
   //echo "La session se ha iniciado para ".$_SESSION['nombre']." con numero de soporte ". $_SESSION['soporte']." y email ".$_SESSION['email'];
 }
 //echo "ha Prueba";
 
 ?>
-

@@ -136,6 +136,8 @@ function getContrasenyaDeUsuario($email) {
 	    $servicio['contrasenya'] = $row['contrasenya'];
 	    $servicio['email'] = $row['email'];
 	    $servicio['nombre'] = $row['nombre'];
+			$servicio['apellido1'] = $row['apellido1'];
+			$servicio['apellido2'] = $row['apellido2'];
 	    $servicio['dni'] = $row['dni'];
 	    $servicio['admin'] = $row['admin'];
 	    //echo '<p> dentro del foreach</p>';
@@ -221,18 +223,40 @@ function getTituloFromId($id) {
 	foreach($db->query($sql) as $row){
 	    //if ($dni == $row['dni_asociado']){
 	    $servicio['uid_titulo'] = $row['uid_titulo'];
-	$servicio['nombre'] = $row['nombre'];
-	$servicio['numero_viajes'] = $row['numero_viajes'];
-	$servicio['caducidad'] = $row['caducidad'];
-	$servicio['ilimitado'] = $row['ilimitado'];
-	$servicio['precio'] = $row['precio'];
-	$servicio['imagen'] = $row['imagen'];
+			$servicio['nombre'] = $row['nombre'];
+			$servicio['numero_viajes'] = $row['numero_viajes'];
+			$servicio['caducidad'] = $row['caducidad'];
+			$servicio['ilimitado'] = $row['ilimitado'];
+			$servicio['precio'] = $row['precio'];
+			$servicio['imagen'] = $row['imagen'];
 	    //echo '<p> dentro del foreach dni '.$servicio['uid_soporte'] . "</p>";}
 	    //}
 	}
 
    $db = null;
    return $servicio;
+}
+
+function UpdateSuport($id, $soporte) {
+
+	 $db = getConexion();
+	 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	 $op = 0;
+
+	if($id == 3){
+
+	   $sql = "UPDATE soporte SET titulo=".$id.", fecha_caducidad=0, viajes_restantes=10 WHERE uid_soporte=".$soporte."";
+	   $stmt = $db->prepare($sql);
+		 $stmt->execute();
+		 $op = 1;
+		}else{
+			$sql = "UPDATE soporte SET titulo=".$id.", fecha_caducidad=1, viajes_restantes=0 WHERE uid_soporte=".$soporte."";
+			$stmt = $db->prepare($sql);
+ 		  $stmt->execute();
+			$op =1;
+			}
+	$db = null;
+   return $op;
 }
 
 

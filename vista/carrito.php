@@ -71,6 +71,8 @@ if($titulo['ilimitado']==1){
 
 ?>
 </tr>
+</form>
+
                                 </table>
                               </div>
                             </div>

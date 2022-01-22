@@ -19,6 +19,7 @@ return $diff->days;
 
 function esPasado($fecha) {
 	$date1 = new DateTime($fecha);
+	//echo date("Y-m-d h:i",$date1);
 	$date2 = new DateTime("now");
 	if($date1 < $date2) {
     $pasado = 1;}
@@ -30,6 +31,39 @@ function esPasado($fecha) {
 		}
 // will output 2 days
 return $pasado;
+
+}
+
+function compararFechas($primera)
+ {
+	$segunda = getdate();
+  $valoresPrimera = explode ("-", $primera);
+	//var_dump($primera);
+
+
+  $anyoPrimera    = $valoresPrimera[0];
+  $mesPrimera  = $valoresPrimera[1];
+  $diaPrimera   = $valoresPrimera[2];
+
+  $diaSegunda   = $segunda["mday"];
+  $mesSegunda = $segunda["mon"];
+  $anyoSegunda  = $segunda["year"];
+
+	//echo   $diaPrimera."-".$mesPrimera."-".$anyoPrimera;
+//	echo   $diaSegunda."-".$mesSegunda."-".$anyoSegunda;
+
+  $diasPrimeraJuliano = gregoriantojd($mesPrimera, $diaPrimera, $anyoPrimera);
+  $diasSegundaJuliano = gregoriantojd($mesSegunda, $diaSegunda, $anyoSegunda);
+
+  if(!checkdate($mesPrimera, $diaPrimera, $anyoPrimera)){
+    // "La fecha ".$primera." no es v&aacute;lida";
+    return 0;
+  }elseif(!checkdate($mesSegunda, $diaSegunda, $anyoSegunda)){
+    // "La fecha ".$segunda." no es v&aacute;lida";
+    return 0;
+  }else{
+    return  $diasPrimeraJuliano - $diasSegundaJuliano;
+  }
 
 }
 

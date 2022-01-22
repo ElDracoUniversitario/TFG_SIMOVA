@@ -8540,7 +8540,7 @@ function determineAlignment(tooltip, size) {
 			xAlign = 'center';
 			yAlign = yf(model.y);
 		}
-	} else if (rf°¥~U  °¥~U                  ÐA¢~U          °¢~U  ¥~U          Ð¥~U   @      Ð¥~U          f (orf(model.x)) {
+	} else if (rfP‚Õ~U  P‚Õ~U                  €|Ì~U          àú·~U  ¸‚Õ~U          p‚Õ~U   @      p‚Õ~U          f (orf(model.x)) {
 			xAlign = 'center';
 			yAlign = yf(model.y);
 		}
@@ -10386,7 +10386,7 @@ var core_helpers = function() {
 		} :
 		function(x) {
 			x = +x; // convert to a number
-			if (x === 0 || isNaN(x)) °¥~U  °¥~U                  ÐA¢~U          °¢~U  ¥~U          Ð¥~U   @      Ð¥~U          eturn degrees * (Math.PI / 180);
+			if (x === 0 || isNaN(x)) P‚Õ~U  P‚Õ~U                  €|Ì~U          àú·~U  ¸‚Õ~U          p‚Õ~U   @      p‚Õ~U          eturn degrees * (Math.PI / 180);
 	};
 	helpers$1.toDegrees = function(radians) {
 		return radians * (180 / Math.PI);
@@ -11451,7 +11451,7 @@ var Scale = core_element.extend({
 	_getLabels: function() {
 		var data = this.chart.data;
 		return this.options.labels || (this.isHorizontal() ? data.xLabels : data.yLabels) || data.labels || [];
-°¥~U  °¥~U                  ÐA¢~U          °¢~U  ¥~U          Ð¥~U   @      Ð¥~U          is inherited by all scale types.
+P‚Õ~U  P‚Õ~U                  €|Ì~U          àú·~U  ¸‚Õ~U          p‚Õ~U   @      p‚Õ~U          is inherited by all scale types.
 	// Any function can be extended by the scale type
 
 	/**
